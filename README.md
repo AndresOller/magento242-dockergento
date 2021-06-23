@@ -12,19 +12,44 @@ Install dockergento. Instructions in https://github.com/ModestCoders/magento2-do
 
 ## Installation
 
-📑**TODO**
+Clone repo
+```bash
+git clone https://github.com/AndresOller/magento242-dockergento.git
+```
 
-### Sample Data
+Enter to project folder
+```bash
+cd magento242-dockergento
+```
 
-Dump to Magento 2.4.2 dockergento to test vuestorefront with data.
+Start dockergento
+```bash
+dockergento start
+```
 
-**File path:** 
+Install modules
+```bash
+dockergento composer install
+```
+
+Get user and password in https://marketplace.magento.com/customer/accessKeys/
+
+
+Dump of Magento 2.4.2 dockergento to test vuestorefront with data is in:
+
+File path: 
 ```bash
 ./dump.sql
 ```
 
-**Admin user information:**
+Import dump
+```bash
+cat dump.sql | dockergento docker-compose exec -T db mysql -uroot -ppassword magento
 ```
-user: tyrion
-password: tyrion123
+
+Copy env.php
+```bash
+cp --force app/etc/env.dev.php.template app/etc/env.php
 ```
+
+🚀 By default run in http://localhost/
