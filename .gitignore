@@ -10,6 +10,7 @@
 !/app/code/**
 !/app/design/**
 !/app/etc/config.php
+!/app/etc/env.php.template
 !/app/i18n/**
 !/auth.json
 !/build_options.ini
